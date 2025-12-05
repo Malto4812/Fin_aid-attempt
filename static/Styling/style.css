@@ -1,0 +1,195 @@
+/* Placeholder CSS - leave as is */
+html{
+    scroll-behavior: smooth;
+}
+/* Text styling */
+h4, h1, a.nav-btn, .act-head{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #303030;
+    font-weight: bold;
+}
+p, h3{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#intro h4{
+    text-align: center;
+    font-size: 20pt;
+}
+#intro p{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+footer p{
+    font-family: 'Courier New', Courier, monospace;
+}
+#alert{
+    text-align: center;
+    color: red;
+    font-size: 32pt;
+}
+#more{
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Section styling */
+/* whole page */
+body{
+    background: #baffba;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+/* Header */
+header{
+    background-color: aqua;
+    text-align: center;
+    box-shadow: 0px 2px 8px #64ff56;
+    padding: 40px;
+    min-width: 320px;
+    max-height: 20%;
+}
+/* nav bar */
+nav{
+    color: rgb(46, 46, 46);
+    background-color: antiquewhite;
+    max-width: 90%;
+    margin: auto;
+}
+nav ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 20px;
+}
+nav a{
+    text-decoration: none;
+    font-weight: bold;
+}
+/* action section */
+#action-section{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    min-width: 100%;
+}
+.act-sect{
+    background-color: aliceblue;
+    border-radius: 10px;
+    box-shadow: 0px 1px 2px #303030;
+    padding: 20px;
+    width: 85%;
+    margin: auto;
+}
+
+/* button styling */
+.act-btn, .done-btn{
+    background-color: #00ffff;
+    text-decoration: none;
+    color: #000000;
+    border-radius: 8px;
+    padding: 4px;
+    cursor: pointer;
+    font-size: 18pt;
+}
+.act-btn:hover, .done-btn:hover{
+    background: red;
+    color: white;
+}
+/* Contact Us section */
+section.contact{
+    background: #0eff0e;
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+    min-width: 310px;
+    margin: 100px auto auto auto;
+    gap: 2px;
+}
+section.contact form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+.done-btn{
+    width: 50%;
+    margin: 10px auto auto auto;
+}
+#foot{
+    background: grey;
+    margin-top: 40px;
+    padding: 10px;
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+
+    /* Reduce padding in sections */
+    section {
+        margin: 30px 10px;
+        padding: 15px;
+    }
+
+    /* Center header text better */
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    /* Make navbar items larger for touch screens */
+    nav ul {
+        gap: 12px;
+        padding: 10px;
+    }
+
+    /* Make project cards full width */
+    .act-sect {
+        margin: 15px 0;
+        padding: 15px;
+    }
+
+    /* Contact form improvements */
+    #contact {
+        padding: 25px 15px;
+    }
+}
+/* Header */
+#more_about_us header{
+    background-color: rgb(255, 0, 0);
+    box-shadow: 0px 2px 8px #64ff56;
+    color: #ffffff;
+    max-height: fit-content;
+}
+
+/* Fade in effects */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* admin.html styling */
+#admin_bod{
+    text-align: center;
+}
+
+/* Table styling */
+table, table .act-btn{
+    margin: auto;
+    font-size: 14pt;
+}
+th{
+    background-color: aqua;
+    font-size: 18pt;
+}
