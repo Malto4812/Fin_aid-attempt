@@ -372,4 +372,6 @@ def admin_password_file():
     return f"Admin password file contents (for testing): {pwd}"
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # For Render, listen on all interfaces and pick port from environment
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
