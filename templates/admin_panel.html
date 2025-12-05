@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Styling/style.css') }}">
+    <script>
+    // AJAX helper to update request status
+    function updateStatus(reqId, sel){
+        var status = sel.value;
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/admin_update_status", true);
+        xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        xhr.onload = function(){
+            if(xhr.status==200){
+                console.log("Updated");
+            } else {
+                alert("Failed to update status");
+            }
+        };
+        xhr.send("req_id="+encodeURIComponent(reqId)+"&status="+encodeURIComponent(status));
+    }
+    </script>
+</head>
+<body style="text-align:center;">
+    <h1>Admin Panel</h1>
+    <h2>Users (emails visible to admin)</h2>
+    <table border="1" style="margin:auto;">
+        <tr><th>PID</th><th>Email</th><th>#Requests</th><th>Created At</th><th>Delete</th></tr>
+        {% for u in users %}
+        <tr>
+            <td>{{ u['pid'] }}</td>
+            <td>{{ u['email'] }}</td>
+            <td>{{ u['signup_count'] }}</td>
+            <td>{{ u['created_at'] }}</td>
+            <td>
+                <form method="POST" action="{{ url_for('admin_delete_user') }}">
+                    <input type="hidden" name="pid" value="{{ u['pid'] }}">
+                    <button type="submit">Delete User</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Requests (no names/emails shown)</h2>
+    <table border="1" style="margin:auto;">
+        <tr><th>Req ID</th><th>PID</th><th>Event</th><th>Required</th><th>Willing</th><th>Balance</th><th>Qualification</th><th>When (EAT)</th><th>Delete</th></tr>
+        {% for r in requests %}
+        <tr>
+            <td>{{ r['id'] }}</td>
+            <td>{{ r['user_pid'] }}</td>
+            <td>{{ r['event'] }}</td>
+            <td>{{ r['amount_required'] }}</td>
+            <td>{{ r['willing_amount'] }}</td>
+            <td>{{ r['balance'] }}</td>
+            <td>
+                <select onchange="updateStatus({{ r['id'] }}, this)">
+                    <option value="qualified" {% if r['status']=='qualified' %}selected{% endif %}>qualified</option>
+                    <option value="disqualified" {% if r['status']=='disqualified' %}selected{% endif %}>disqualified</option>
+                </select>
+            </td>
+            <td>{{ r['created_at'] }}</td>
+            <td>
+                <form method="POST" action="{{ url_for('admin_delete_request') }}">
+                    <input type="hidden" name="req_id" value="{{ r['id'] }}">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <section class="contact">
+        <h2>Send message to a user (email looked up by PID)</h2>
+        <form method="POST" action="{{ url_for('admin_send_message') }}">
+            <label>PID:
+                <select name="pid" required>
+                    <option value="">Select PID</option>
+                    {% for u in users %}
+                    <option value="{{ u['pid'] }}">{{ u['pid'] }}</option>
+                    {% endfor %}
+                </select>
+            </label><br>
+            <label>Message:<br>
+                <textarea name="message" rows="4" cols="50" required></textarea>
+            </label><br>
+            <button type="submit" class="done-btn">Send</button>
+        </form>
+    </section>
+
+    <p><a href="{{ url_for('admin_password_file') }}" target="_blank" class="act-btn">(Testing) View admin password file</a></p>
+</body>
+</html>

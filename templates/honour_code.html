@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honour Code</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        header{
+            background-color: antiquewhite;
+            padding: 50px 20px;
+            box-shadow: 0px 2px 4px #777;
+            text-align: center;
+        }
+        .main-part{
+            font-size: 17pt;
+            padding: 30px;
+        }
+        button{
+            margin: auto;
+            min-width: 300px;
+            padding: 4px;
+            border-radius: 10px;
+        }
+        button:hover{
+            background: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Please agree to honour code below before proceeding</h1>
+        <p>It helps ensure that the right help goes to the right person.</p>
+    </header>
+    <section class="main-part">
+        <p>I hereby state that any information I give will be the truth the whole truth and nothing but the truth, to the best of my knowledge.
+            <br>I understand that providing false information may result in disqualification and I take full responsibility for any actions that may go against what I have said I will do.</p>
+    </section>
+    <form class="main-part" method="post">
+        <input type="checkbox" name="agree" id="agree" value="yes">
+        <label for="agree">I agree</label><br>
+
+        <br><button type="submit">Proceed</button>
+    </form>
+
+</body>
+</html>

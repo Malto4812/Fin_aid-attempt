@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Received</title>
+</head>
+<body style="text-align: center;">
+    <h2>Your request was successful and has been registered.</h2>
+    <p>Remaining balance: {{ balance }}</p>
+    <p>Your ID: {{ pid }}</p>
+    <a href="{{ url_for('dashboard') }}"><button>Go to Dashboard</button></a>
+</body>
+</html>

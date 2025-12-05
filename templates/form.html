@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eligibility Form</title>
+    <style>
+        #head{
+            text-align: center;
+        }
+        body{
+            background-color: #fffd8e;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        form, select{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 14pt;
+            background: #54ff54;
+            margin: auto;
+            text-align: center;
+            min-width: fit-content;
+            max-width: fit-content;
+        }
+        button{
+            margin: auto;
+            min-width: 300px;
+            padding: 4px;
+            border-radius: 10px;
+        }
+        button:hover{
+            background: red;
+            color: white;
+        }
+        /* Fade in effects */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(70px);
+            animation: fadeInUp 2.0s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- top section -->
+    <section id="head">
+        <h1>Before we move on,</h1>
+        <p>We kindly request that you first answer this form. All questions are required to be answered.</p>
+    </section>
+
+    <!-- Main form section -->
+    <form method="POST" class="fade-in">
+
+        <!-- Child's willingness -->
+        <fieldset>
+            <legend>1. Is the child interested in participating in the event?</legend>
+            <label><input type="radio" class="yes" name="yes-no-1" value="yes" required>Yes</label><br>
+            <label><input type="radio" class="no" name="yes-no-1" value="no" required>No</label>
+        </fieldset>
+
+        <!-- Child's behaviour -->
+        <fieldset>
+            <legend>2.  Does the child have any serious disciplinary issues that are recorded in their files?</legend>
+            <label><input type="radio" class="yes" name="yes-no-2" value="yes" required>Yes</label><br>
+            <label><input type="radio" class="no" name="yes-no-2" value="no" required>No</label>
+        </fieldset>
+
+        <!-- Event -->
+        <fieldset>
+            <legend>3.  Please select what you are paying for.</legend>
+            <label>
+                <select name="event" id="event" required style="background-color: #fff; text-align: left;">
+                    <option value="">Please select</option>
+                    <option value="trip">Trip</option>
+                    <option value="club">Club</option>
+                </select>
+            </label>
+        </fieldset>
+
+        <!-- Amount -->
+        <fieldset>
+            <legend>4.  What is the required amount for the event/club?</legend>
+            <label>Amount: <input type="number" name="amount" id="amount" required></label>
+        </fieldset>
+
+        <!-- Willing to pay -->
+        <fieldset>
+            <legend>5. How much are you willing to pay?</legend>
+            <label>Amount: <input type="number" name="willing_amount" id="willing_amount" required></label>
+        </fieldset>
+
+        <!-- Class -->
+        <fieldset>
+            <legend>6. In which class is the child?</legend>
+            <label>
+                <select name="year" id="year" required style="background-color: #fff; text-align: left;">
+                    <option value="">None (Please select another option)</option>
+                    <option value="yr-7">Year 7</option>
+                    <option value="yr-8">Year 8</option>
+                    <option value="yr-9">Year 9</option>
+                    <option value="yr-10">Year 10</option>
+                    <option value="yr-11">Year 11</option>
+                    <option value="yr-12">Year 12</option>
+                    <option value="yr-13">Year 13</option>
+                </select>
+                <br>
+            </label>
+        </fieldset>
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>

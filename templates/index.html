@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Aid Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Styling/style.css') }}">
+</head>
+<body id="whole_thing">
+    <div id="alert"><strong>SITE STILL UNDER CONSTRUCTION</strong></div>
+    <header id="head" class="fade-in">
+        <h1 id="title">Welcome to the financial aid page</h1>
+    </header>
+
+    <!-- Intro (About us) -->
+    <section id="intro" class="fade-in">
+
+        <h4>About Us</h4>
+        <p>This project exists primarily for the purpose of helping students and parents who may not be able to pay for certain 
+            beneficial school events mostly due to their expenses.</p>
+    </section>
+
+    <!-- Little statement -->
+    <p class="fade-in" style="text-align: center;">How can we help?</p>
+
+    <!-- Sticky nav bar -->
+    <nav class="fade-in">
+        <ul>
+            <li><a href="#aid" class="nav-btn">Request for aid</a></li>
+            <li><a href="#donate" class="nav-btn">Donate</a></li>
+            <li><a href="#contact" class="nav-btn">Contact Us</a></li>
+            <li><a href="#more" class="nav-btn">More</a></li>
+        </ul>
+    </nav>
+
+    <!-- Action section -->
+    <section id="action-section" class="fade-in">
+        <div class="act-sect">
+            <h4 class="act-head" id="aid">Request for aid</h4>
+            <p>Is there a school activity that you need help paying out? Don't worry, we all need help sometimes. 
+                Click below to start the requisition process.You may be required to login or sign-up.</p>
+            <a href="{{ url_for('login_page') }}" class="act-btn">Financial aid</a>
+        </div>
+        <div class="act-sect">
+            <h4 class="act-head" id="donate">Donate</h4>
+            <p>Care to give a dime or two? Every penny counts towards the cause. You can click the button below to make your donation.</p>
+            <a href="#" class="act-btn">Donate now.</a>
+        </div>
+    </section>
+    <!-- Contact section -->
+    <section class="contact" class="fade-in">
+        <h4>Contact Us</h4>
+        <p>We are also reachable. If you have any queries, or would like to give us feedback, feel free to let us know.</p>
+        <form action="https://formsubmit.co/mattmukisa44@gmail.com.com" method="post">
+            <input type="hidden" name="_captcha" value="false">
+
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Please insert your name here">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Insert your email here." required>
+
+            <label for="message">Your message</label>
+            <textarea id="message" cols="30" rows="10" placeholder="What would you like to say?" required></textarea>
+
+            <button type="submit" class="done-btn">Done</button>
+        </form>
+    </section>
+
+    <!-- Link to 'More about Us' -->
+    <section id="more" class="fade-in">
+        <p>Want to learn more about us and our team? Explore using the button below.</p>
+        <h3><a href="About_us_page.html" class="act-btn" target="_blank">More about Us</a></h3>
+    </section>
+
+    <!-- Footer -->
+    <footer id="foot"  class="fade-in">
+        <p>Financial aid project, 2025</p>
+	  <a href="{{ url_for('admin_login') }}" class="act-btn">Admin Login</a>
+    </footer>
+
+</body>
+</html>
